@@ -58,12 +58,8 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
-                  child: ClipOval(
-                    child: Image.network('assets/logo.png',
-                    width: 100.0,
-                    height: 100.0,
-                    ),
-                  ),
+                  child: Image.network('assets/logo.png'),
+
                 ),
                 Text(
                   'Login',

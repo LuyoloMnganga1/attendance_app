@@ -1,7 +1,9 @@
 import 'package:attendance_app/services/locator/navigation_service.dart';
 import 'package:attendance_app/utils/theme.dart';
+import 'package:attendance_app/views/pages/about_the_app.dart';
 import 'package:attendance_app/views/pages/change_password_page.dart';
 import 'package:attendance_app/views/pages/employee_info_page.dart';
+import 'package:attendance_app/views/pages/help.dart';
 import 'package:attendance_app/views/pages/layout_page.dart';
 import 'package:attendance_app/views/pages/personal_info_page.dart';
 import 'package:attendance_app/views/pages/presence_page.dart';
@@ -29,7 +31,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => UserStore()),  // Provide UserStore to the widget tree
+        ChangeNotifierProvider(create: (context) => UserStore()),  // Provide UserStore to the widget tree
       ],
       child: MaterialApp(
         builder: (context, child) {
@@ -71,6 +73,8 @@ class MainApp extends StatelessWidget {
           ),
           '/': (context) => const SplashScreen(),
           '/personal-info': (context) => const PersonalInfoPage(),
+          '/about-app': (context) => const AboutTheApp(),
+          '/help': (context) => const HelpPage(),
           '/employee-info': (context) => const EmployeeInfoPage(),
           '/change-password': (context) => const ChangePasswordPage(),
         },

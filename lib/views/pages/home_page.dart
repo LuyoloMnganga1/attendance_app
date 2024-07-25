@@ -1,3 +1,5 @@
+import 'package:attendance_app/model/news_model.dart';
+import 'package:attendance_app/views/widgets/home/news_card.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance_app/provider/store_provider.dart';
 import 'package:attendance_app/services/api/attendance_service.dart';
@@ -24,6 +26,25 @@ class _HomePageState extends State<HomePage> {
       setState(() {});
     }
   }
+
+  final List<NewsItem> _mockNewsItems = [
+    NewsItem(
+      title: 'Tech Giants Embrace AI',
+      description: 'Major technology companies are investing heavily in artificial intelligence to revolutionize the industry.',
+      imageUrl: 'https://clocking.ictchoice.com/images/AI.jpg',
+    ),
+    NewsItem(
+      title: 'Cyber security Threats Increase',
+      description: 'Recent reports show a significant rise in cyber security threats targeting businesses worldwide.',
+      imageUrl: 'https://clocking.ictchoice.com/images/cyber.jpeg',
+    ),
+    NewsItem(
+      title: 'Cloud Computing Trends for 2024',
+      description: 'Experts predict key trends in cloud computing that will shape the industry in the coming year.',
+      imageUrl: 'https://clocking.ictchoice.com/images/cloud.png',
+    ),
+    // Add more items as needed
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +121,25 @@ class _HomePageState extends State<HomePage> {
                           snapshot.connectionState == ConnectionState.waiting,
                     );
                   },
+                ),
+                const SizedBox(height: 10),
+                // Section for IT Business News
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'IT Business News',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      ..._mockNewsItems.map((newsItem) => NewsCard(newsItem: newsItem)).toList(),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 30),
               ],

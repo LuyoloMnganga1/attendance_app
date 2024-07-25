@@ -57,9 +57,14 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: 30,),
                 Center(
-                  child: Image.network('assets/logo.png'),
-
+                  child: ClipOval(
+                    child: Image.network('https://clocking.ictchoice.com/images/logo.png',
+                    width: 100.0,
+                    height: 100.0,
+                    ),
+                  ),
                 ),
                 Text(
                   'Login',

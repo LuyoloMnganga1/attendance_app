@@ -28,8 +28,8 @@ class _ProfilePageState extends State<ProfilePage> {
   ];
 
   final List<Map<String, dynamic>> aboutApp = [
-    {'title': 'About the App', 'icon': Icons.phone_android_rounded},
-    {'title': 'Help', 'icon': Icons.help_outline_rounded},
+    {'title': 'About the App', 'icon': Icons.phone_android_rounded, 'route': '/about-app'},
+    {'title': 'Help', 'icon': Icons.help_outline_rounded, 'route': '/help'},
   ];
 
   @override
@@ -175,7 +175,9 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Column(
             children: aboutApp.map((data) {
               return InkWell(
-                onTap: () {},
+                onTap: () {
+                  navigator.pushNamed(data['route']);
+                },
                 child: Container(
                   padding: paddingAll,
                   decoration: BoxDecoration(
